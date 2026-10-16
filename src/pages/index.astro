@@ -1,0 +1,322 @@
+---
+import Layout from '../layouts/Layout.astro';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const year = new Date().getFullYear();
+
+const services = [
+  {
+    title: 'New Custom Pools',
+    body: 'Designed and built from the ground up to fit your yard, your lifestyle, and the way you want to use the water — from clean modern geometry to free-form resort shapes.',
+  },
+  {
+    title: 'Pool Remodels & Renovation',
+    body: 'Bring a tired or dated pool back to life — resurfacing, new tile and coping, modern finishes, and updated equipment that looks and runs like new.',
+  },
+  {
+    title: 'Spas & Water Features',
+    body: 'Integrated spas, spillways, sun shelves, and water features that turn a backyard pool into a true outdoor retreat.',
+  },
+  {
+    title: 'Local, Hands-On Service',
+    body: 'A Naples-based builder who knows Southwest Florida yards, screens, and summers — and stays involved from first sketch to final fill.',
+  },
+];
+
+const areas = ['Naples', 'Marco Island', 'Bonita Springs'];
+---
+
+<Layout>
+  <header class="site-head">
+    <div class="wrap head-inner">
+      <a class="brand" href="#top" aria-label="Glamour Pools of Naples — home">
+        <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
+          <rect width="64" height="64" rx="14" fill="url(#bg)" />
+          <defs>
+            <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#2bb3c0" />
+              <stop offset="1" stop-color="#0c6478" />
+            </linearGradient>
+          </defs>
+          <path d="M8 38c5 0 5 4 10 4s5-4 10-4 5 4 10 4 5-4 10-4 5 4 8 4" fill="none" stroke="#eafcff" stroke-width="3" stroke-linecap="round" opacity="0.9" />
+          <path d="M8 46c5 0 5 4 10 4s5-4 10-4 5 4 10 4 5-4 10-4 5 4 8 4" fill="none" stroke="#eafcff" stroke-width="3" stroke-linecap="round" opacity="0.55" />
+          <circle cx="44" cy="22" r="7" fill="#ffe08a" />
+        </svg>
+        <span class="brand-name">Glamour Pools<small>of Naples</small></span>
+      </a>
+      <a class="btn btn-sun head-cta" href="#contact">Free Consultation</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-waves" aria-hidden="true">
+        <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
+          <path fill="rgba(127,217,224,0.22)" d="M0 160l60 10.7C120 181 240 203 360 197.3 480 192 600 160 720 149.3 840 139 960 149 1080 165.3 1200 181 1320 203 1380 213.3l60 10.7V320H0z" />
+          <path fill="rgba(127,217,224,0.30)" d="M0 224l60-16c60-16 180-48 300-42.7 120 5.3 240 47.3 360 58.7 120 10.7 240-10.3 360-26.7 120-16.3 240-26.3 300-32l60-5.3V320H0z" />
+        </svg>
+      </div>
+      <div class="wrap hero-inner">
+        <p class="eyebrow">Naples · Marco Island · Bonita Springs</p>
+        <h1>Custom pools, beautifully built — and<br class="d-br" /> brought back to life.</h1>
+        <p class="lede">
+          Glamour Pools of Naples designs, builds, and remodels custom swimming pools
+          across Southwest Florida. Whether you're starting from bare ground or
+          reimagining a pool you already have, we make the water the best part of your home.
+        </p>
+        <div class="hero-cta">
+          <a class="btn btn-sun" href="#contact">Request a Free Consultation</a>
+          <a class="btn btn-ghost" href="#services">See What We Do</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="services">
+      <div class="wrap">
+        <div class="sec-head">
+          <p class="eyebrow dark">What we build</p>
+          <h2>From a blank backyard to your favorite room in the house.</h2>
+        </div>
+        <div class="svc-grid">
+          {services.map((s) => (
+            <article class="svc-card">
+              <h3>{s.title}</h3>
+              <p>{s.body}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- APPROACH / BAND -->
+    <section class="band">
+      <div class="wrap band-inner">
+        <div class="band-copy">
+          <p class="eyebrow">Why Glamour</p>
+          <h2>A builder who treats your yard like his own.</h2>
+          <p>
+            Pools are a big investment and a long relationship. We keep the process
+            personal and straightforward — real conversations, clear plans, and
+            craftsmanship we're proud to put our name on. You work directly with the
+            people building your pool, not a call center.
+          </p>
+          <ul class="ticks">
+            <li>Custom design around your space and budget</li>
+            <li>New builds and full remodels</li>
+            <li>Southwest Florida local, start to finish</li>
+          </ul>
+        </div>
+        <div class="band-card">
+          <span class="band-num">3</span>
+          <p class="band-num-label">cities we proudly serve across SWFL</p>
+          <div class="area-pills">
+            {areas.map((a) => <span>{a}</span>)}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact">
+      <div class="wrap contact-inner">
+        <div class="contact-copy">
+          <p class="eyebrow dark">Let's talk</p>
+          <h2>Tell us about your pool project.</h2>
+          <p>
+            Share a few details and we'll get back to you to talk through ideas,
+            timing, and a free consultation. New build or remodel — we'd love to hear
+            what you have in mind.
+          </p>
+        </div>
+        <form class="form" id="contact-form" novalidate>
+          <div class="row">
+            <label>
+              Name
+              <input type="text" name="name" autocomplete="name" required />
+            </label>
+            <label>
+              Email
+              <input type="email" name="email" autocomplete="email" required />
+            </label>
+          </div>
+          <label>
+            Phone <span class="opt">(optional)</span>
+            <input type="tel" name="phone" autocomplete="tel" />
+          </label>
+          <label>
+            What are you thinking about?
+            <textarea name="message" rows="4" placeholder="New pool, remodel, spa, your city…" required></textarea>
+          </label>
+          <input type="text" name="website_hp" tabindex="-1" autocomplete="off" aria-hidden="true" class="hp" />
+          <button type="submit" class="btn btn-sun">Send My Request</button>
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-foot">
+    <div class="wrap foot-inner">
+      <div class="brand foot-brand">
+        <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
+          <defs>
+            <linearGradient id="bgf" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#2bb3c0" />
+              <stop offset="1" stop-color="#0c6478" />
+            </linearGradient>
+          </defs>
+          <rect width="64" height="64" rx="14" fill="url(#bgf)" />
+          <path d="M8 38c5 0 5 4 10 4s5-4 10-4 5 4 10 4 5-4 10-4 5 4 8 4" fill="none" stroke="#eafcff" stroke-width="3" stroke-linecap="round" opacity="0.9" />
+          <path d="M8 46c5 0 5 4 10 4s5-4 10-4 5 4 10 4 5-4 10-4 5 4 8 4" fill="none" stroke="#eafcff" stroke-width="3" stroke-linecap="round" opacity="0.55" />
+          <circle cx="44" cy="22" r="7" fill="#ffe08a" />
+        </svg>
+        <span class="brand-name">Glamour Pools<small>of Naples</small></span>
+      </div>
+      <p class="foot-areas">Serving Naples · Marco Island · Bonita Springs, FL</p>
+      <p class="foot-legal">© {year} Glamour Pools of Naples. Custom pool construction &amp; remodeling.</p>
+    </div>
+  </footer>
+</Layout>
+
+<style>
+  .eyebrow {
+    text-transform: uppercase; letter-spacing: 0.18em; font-size: 0.78rem;
+    font-weight: 700; margin: 0 0 0.9rem; color: var(--aqua-light);
+  }
+  .eyebrow.dark { color: var(--lagoon); }
+  .sec-head { max-width: 640px; margin-bottom: 2.6rem; }
+  .sec-head h2, .band-copy h2, .contact-copy h2 { font-size: clamp(1.7rem, 4vw, 2.5rem); }
+
+  /* HEADER */
+  .site-head {
+    position: sticky; top: 0; z-index: 20;
+    background: rgba(244, 237, 225, 0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--sand-deep);
+  }
+  .head-inner { display: flex; align-items: center; justify-content: space-between; padding: 0.7rem 0; }
+  .brand { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; }
+  .brand-mark { width: 40px; height: 40px; border-radius: 11px; flex: none; }
+  .brand-name { font-family: 'Fraunces', serif; font-weight: 600; font-size: 1.15rem; color: var(--lagoon-deep); line-height: 1; display: flex; flex-direction: column; }
+  .brand-name small { font-family: 'Mulish', sans-serif; font-weight: 700; font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--aqua); margin-top: 3px; }
+  .head-cta { padding: 0.6rem 1.2rem; font-size: 0.92rem; }
+
+  /* HERO */
+  .hero {
+    position: relative; overflow: hidden;
+    background: radial-gradient(130% 120% at 80% -10%, #148196 0%, var(--lagoon) 42%, var(--lagoon-deep) 100%);
+    color: var(--white);
+    padding: clamp(3.5rem, 9vw, 7rem) 0 clamp(5rem, 11vw, 8.5rem);
+  }
+  .hero-waves { position: absolute; inset: auto 0 -2px; line-height: 0; }
+  .hero-waves svg { width: 100%; height: 190px; }
+  .hero-inner { position: relative; z-index: 2; max-width: 820px; }
+  .hero h1 { font-size: clamp(2.2rem, 6vw, 4rem); font-weight: 500; letter-spacing: -0.01em; }
+  .hero .lede { font-size: clamp(1.05rem, 2.4vw, 1.25rem); color: rgba(234, 252, 255, 0.92); max-width: 640px; margin: 1.4rem 0 2.2rem; }
+  .hero-cta { display: flex; flex-wrap: wrap; gap: 0.9rem; }
+
+  /* SERVICES */
+  .services { padding: clamp(3.5rem, 8vw, 6rem) 0; }
+  .svc-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem; }
+  .svc-card {
+    background: var(--white); border-radius: var(--radius); padding: 1.8rem;
+    border: 1px solid var(--sand-deep); box-shadow: var(--shadow);
+  }
+  .svc-card h3 { font-size: 1.3rem; color: var(--lagoon-deep); margin-bottom: 0.6rem; }
+  .svc-card p { color: var(--muted); margin: 0; }
+
+  /* BAND */
+  .band { background: linear-gradient(160deg, var(--lagoon-deep), #0a5263); color: var(--white); padding: clamp(3.5rem, 8vw, 6rem) 0; }
+  .band-inner { display: grid; grid-template-columns: 1.3fr 1fr; gap: 2.5rem; align-items: center; }
+  .band-copy p { color: rgba(234, 252, 255, 0.85); }
+  .ticks { list-style: none; padding: 0; margin: 1.4rem 0 0; display: grid; gap: 0.7rem; }
+  .ticks li { position: relative; padding-left: 1.9rem; color: #eafcff; }
+  .ticks li::before { content: ''; position: absolute; left: 0; top: 0.45em; width: 11px; height: 6px; border-left: 2.5px solid var(--sun); border-bottom: 2.5px solid var(--sun); transform: rotate(-45deg); }
+  .band-card { background: rgba(255, 255, 255, 0.07); border: 1px solid rgba(255, 255, 255, 0.18); border-radius: var(--radius); padding: 2rem; text-align: center; }
+  .band-num { font-family: 'Fraunces', serif; font-size: 4.5rem; line-height: 1; color: var(--sun); }
+  .band-num-label { color: rgba(234, 252, 255, 0.85); margin: 0.3rem 0 1.4rem; }
+  .area-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; }
+  .area-pills span { background: rgba(127, 217, 224, 0.16); border: 1px solid rgba(127, 217, 224, 0.35); color: #eafcff; padding: 0.4rem 0.9rem; border-radius: 999px; font-size: 0.9rem; font-weight: 500; }
+
+  /* CONTACT */
+  .contact { padding: clamp(3.5rem, 8vw, 6rem) 0; }
+  .contact-inner { display: grid; grid-template-columns: 1fr 1.1fr; gap: 2.5rem; align-items: start; }
+  .contact-copy p { color: var(--muted); }
+  .contact-copy { position: sticky; top: 90px; }
+  .form { background: var(--white); border: 1px solid var(--sand-deep); border-radius: var(--radius); padding: 1.8rem; box-shadow: var(--shadow); display: grid; gap: 1rem; }
+  .form .row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .form label { display: grid; gap: 0.4rem; font-weight: 700; font-size: 0.92rem; color: var(--lagoon-deep); }
+  .form .opt { font-weight: 400; color: var(--muted); }
+  .form input, .form textarea {
+    font-family: inherit; font-size: 16px; color: var(--ink);
+    border: 1.5px solid var(--sand-deep); border-radius: 11px; padding: 0.7rem 0.85rem;
+    background: #fcfaf5; width: 100%; resize: vertical;
+  }
+  .form input:focus, .form textarea:focus { border-color: var(--aqua); outline: none; box-shadow: 0 0 0 3px rgba(43, 179, 192, 0.18); }
+  .form .hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+  .form button { justify-content: center; margin-top: 0.2rem; }
+  .form-status { margin: 0; font-weight: 700; font-size: 0.92rem; min-height: 1.1em; }
+  .form-status.ok { color: #0a7d4b; }
+  .form-status.err { color: #c0362c; }
+
+  /* FOOTER */
+  .site-foot { background: var(--lagoon-deep); color: rgba(234, 252, 255, 0.78); padding: 2.6rem 0; }
+  .foot-inner { display: grid; gap: 0.6rem; text-align: center; justify-items: center; }
+  .foot-brand .brand-name { color: #fff; }
+  .foot-areas { margin: 0.3rem 0 0; font-weight: 700; color: #eafcff; }
+  .foot-legal { margin: 0; font-size: 0.85rem; }
+
+  @media (max-width: 760px) {
+    .d-br { display: none; }
+    .svc-grid { grid-template-columns: 1fr; }
+    .band-inner, .contact-inner { grid-template-columns: 1fr; }
+    .contact-copy { position: static; }
+    .head-cta { display: none; }
+    .form .row { grid-template-columns: 1fr; }
+  }
+</style>
+
+<script>
+  const form = document.getElementById('contact-form');
+  const statusEl = document.getElementById('form-status');
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = form.querySelector('button[type=submit]');
+      const data = Object.fromEntries(new FormData(form).entries());
+      statusEl.className = 'form-status';
+      statusEl.textContent = '';
+      if (!data.name || !data.email || !data.message) {
+        statusEl.classList.add('err');
+        statusEl.textContent = 'Please fill in your name, email, and a short message.';
+        return;
+      }
+      btn.disabled = true;
+      const prev = btn.textContent;
+      btn.textContent = 'Sending…';
+      try {
+        const res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        });
+        const out = await res.json().catch(() => ({}));
+        if (res.ok && out.ok) {
+          form.reset();
+          statusEl.classList.add('ok');
+          statusEl.textContent = "Thanks! We got your message and will be in touch soon.";
+        } else {
+          statusEl.classList.add('err');
+          statusEl.textContent = out.error || 'Something went wrong. Please try again.';
+        }
+      } catch (_) {
+        statusEl.classList.add('err');
+        statusEl.textContent = 'Network error. Please try again in a moment.';
+      } finally {
+        btn.disabled = false;
+        btn.textContent = prev;
+      }
+    });
+  }
+</script>
